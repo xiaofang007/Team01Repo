@@ -1,5 +1,5 @@
 # Super-Team01 
-Team URL: ![https://github.com/xiaofang007/Team01Repo.git](https://github.com/xiaofang007/Team01Repo.git)
+Team URL: [https://github.com/xiaofang007/Team01Repo.git](https://github.com/xiaofang007/Team01Repo.git)
 ## 1. FANG Xiao
 email: xfangal@ust.hk | github: xiaofang007 | dev_branch:  
 Task A (A1 & A2)
