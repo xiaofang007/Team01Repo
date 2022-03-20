@@ -6,6 +6,6 @@ Task A (A1 & A2)
 ## 2. HU Wenbin
 email: whuak@ust.hk | github: HUWENBIN2024 | dev_branch: HU-Wenbin  
 Task B (B1 & B2)
-## 3. Yang Mobei
+## 3. YANG Mobei
 email: myangba@ust.hk | github: BenYang2002 | dev_branch:  
 Task C (C1 & C2)
