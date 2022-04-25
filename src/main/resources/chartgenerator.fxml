@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.covid.ChartcontrollerA">
+<VBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.covid.ChartcontrollerA">
    <children>
-      <LineChart fx:id="linechart" prefHeight="393.0" prefWidth="600.0">
+      <LineChart fx:id="linechart" prefHeight="731.0" prefWidth="600.0">
         <xAxis>
           <CategoryAxis label="Date">
                <tickLabelFont>
@@ -27,6 +27,6 @@
         </yAxis>
       </LineChart>
       <TextArea fx:id="Textconsolechart" prefHeight="62.0" prefWidth="600.0" />
-      <Button fx:id="Return" mnemonicParsing="false" onAction="#Returntoui" text="Return" />
+      <Button fx:id="Return" mnemonicParsing="false" onAction="#Returntoui" prefHeight="23.0" prefWidth="57.0" text="Return" />
    </children>
 </VBox>
