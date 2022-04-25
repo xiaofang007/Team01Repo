@@ -139,7 +139,7 @@ public class Controller implements Initializable {
      *  When this method is called, it will switch scene and pass the date to the TablecontrollerA
      */
     @FXML
-    void switchscenetotable(ActionEvent event) throws IOException{
+    void switchscenetotableA1(ActionEvent event) throws IOException{
     	FXMLLoader tableloader = new FXMLLoader();
     	tableloader.setLocation(getClass().getResource("/tablegenerator.fxml"));
     	Parent tableviewA = tableloader.load();
@@ -162,7 +162,7 @@ public class Controller implements Initializable {
      *  When this method is called, it will switch scene and pass the date to the ChartcontrollerA
      */
     @FXML
-    void switchscenetochart(ActionEvent event) throws Exception {
+    void switchscenetochartA2(ActionEvent event) throws Exception {
     	FXMLLoader chartloader = new FXMLLoader();
     	chartloader.setLocation(getClass().getResource("/chartgenerator.fxml"));
     	Parent chartviewA = chartloader.load();
