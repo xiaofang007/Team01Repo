@@ -9,12 +9,12 @@
 
 <VBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.covid.TablecontrollerA">
    <children>
-      <TextArea fx:id="title" prefHeight="52.0" prefWidth="600.0">
+      <TextArea fx:id="title" prefHeight="81.0" prefWidth="600.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </TextArea>
-      <TableView fx:id="tableview" prefHeight="300.0" prefWidth="200.0">
+      <TableView fx:id="tableview" prefHeight="333.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="countrycolumn" prefWidth="156.0" text="Country" />
           <TableColumn fx:id="totalcasecolumn" prefWidth="242.0" text="Total Cases" />

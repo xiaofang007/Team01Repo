@@ -30,19 +30,19 @@ import javafx.stage.Stage;
  */
 public class Controller implements Initializable {
 	
-	private LinkedList <String> selectedcountry = new LinkedList<String>();
+	private LinkedList <String> selectedcountryA = new LinkedList<String>();
 	
     @FXML
-    private Menu countrymenuB;
+    private Menu countrymenuA1;
 	
     @FXML
-    private DatePicker dateselectionbegin;
+    private DatePicker dateselectionbeginA2;
 
     @FXML
-    private DatePicker dateselectionend;
+    private DatePicker dateselectionendA2;
 
     @FXML
-    private Menu countrymenuA;
+    private Menu countrymenuA2;
 
     @FXML
     private Tab tabTaskZero;
@@ -66,10 +66,10 @@ public class Controller implements Initializable {
     private DatePicker dateselectiontaskA;
     
     @FXML
-    private Button EnterA;
+    private Button EnterA1;
     
     @FXML
-    private Button EnterB;
+    private Button EnterA2;
     
     @FXML
     private Tab tabReport1;
@@ -141,14 +141,14 @@ public class Controller implements Initializable {
     @FXML
     void switchscenetotable(ActionEvent event) throws IOException{
     	FXMLLoader tableloader = new FXMLLoader();
-    	tableloader.setLocation(getClass().getResource("/tablegeneratorA.fxml"));
+    	tableloader.setLocation(getClass().getResource("/tablegenerator.fxml"));
     	Parent tableviewA = tableloader.load();
     	Scene tableviewscene = new Scene(tableviewA);
     	// access the controller and call a method
     	TablecontrollerA tablecontroller = tableloader.getController();
     	try {
-    		selectedcountry.getFirst();
-    		tablecontroller.initData(getdate(dateselectiontaskA),selectedcountry);
+    		selectedcountryA.getFirst();
+    		tablecontroller.initData(getdate(dateselectiontaskA),selectedcountryA);
         	Stage tablewindow = (Stage) ((Node)event.getSource()).getScene().getWindow(); 
         	tablewindow.setScene(tableviewscene);
         	tablewindow.show();
@@ -164,19 +164,19 @@ public class Controller implements Initializable {
     @FXML
     void switchscenetochart(ActionEvent event) throws Exception {
     	FXMLLoader chartloader = new FXMLLoader();
-    	chartloader.setLocation(getClass().getResource("/chartgeneratorA.fxml"));
+    	chartloader.setLocation(getClass().getResource("/chartgenerator.fxml"));
     	Parent chartviewA = chartloader.load();
     	Scene chartviewscene = new Scene(chartviewA);
     	// access the controller and call a method
     	ChartcontrollerA chartcontroller = chartloader.getController();
     	try{
-    		selectedcountry.getFirst();
-    		chartcontroller.initData(getdate(dateselectionbegin), getdate(dateselectionend), selectedcountry);
+    		selectedcountryA.getFirst();
+    		chartcontroller.initData(getdate(dateselectionbeginA2), getdate(dateselectionendA2), selectedcountryA);
     	}
     	catch(Exception e) {
     		textAreaConsole.setText("please select at least one country and enter the specific date for begin and return.");
     	}
-		if(comparedate(dateselectionbegin).compareTo(comparedate(dateselectionend))>=0) {
+		if(comparedate(dateselectionbeginA2).compareTo(comparedate(dateselectionendA2))>=0) {
     		textAreaConsole.setText("the beginning date should be in front of end date");
     		throw new Exception();
     	}
@@ -207,7 +207,7 @@ public class Controller implements Initializable {
     }
 
     /**
-     * initialize the country menu(add all countries which can be selected into the menu
+     * initialize the country menu(add all countries which can be selected into the menu)
      */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -215,7 +215,7 @@ public class Controller implements Initializable {
 			@Override
 			public void handle(ActionEvent e) {
 				if (((CheckMenuItem)e.getSource()).isSelected()) {
-					selectedcountry.add(((CheckMenuItem)e.getSource()).getText());
+					selectedcountryA.add(((CheckMenuItem)e.getSource()).getText());
 				}
 				else;
 			}			
@@ -229,8 +229,8 @@ public class Controller implements Initializable {
 				CheckMenuItem item2 = new CheckMenuItem(current_country);
 				item1.setOnAction(event);
 				item2.setOnAction(event);
-				countrymenuA.getItems().add(item1);
-				countrymenuB.getItems().add(item2);
+				countrymenuA1.getItems().add(item1);
+				countrymenuA2.getItems().add(item2);
 				previous_country = current_country;
 			}
 		}
@@ -240,7 +240,7 @@ public class Controller implements Initializable {
 	 * This function is just used for testing whether getdate() can get the proper date.
 	 */
 	public DatePicker getdatepicker() {
-		return dateselectionbegin;
+		return dateselectionbeginA2;
 	}
 }
 
