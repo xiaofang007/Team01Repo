@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import org.apache.commons.csv.CSVRecord;
 
 /**
- * This class is the main class for doing taskA1
+ * This class is the main class for doing taskA2
  * @author fangxiao
  * 
  */
