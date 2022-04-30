@@ -170,19 +170,19 @@ public class Controller implements Initializable {
     	// access the controller and call a method
     	ChartcontrollerA chartcontroller = chartloader.getController();
     	try{
-    		selectedcountryA.getFirst();
+    		selectedcountryA.getFirst();		
+    		if(comparedate(dateselectionbeginA2).compareTo(comparedate(dateselectionendA2))>=0) {
+        		throw new Exception();
+        	}       	
     		chartcontroller.initData(getdate(dateselectionbeginA2), getdate(dateselectionendA2), selectedcountryA);
+        	Stage chartwindow = (Stage) ((Node)event.getSource()).getScene().getWindow(); 
+    		chartwindow.setScene(chartviewscene);
+    		chartwindow.show();
     	}
     	catch(Exception e) {
-    		textAreaConsole.setText("please select at least one country and enter the specific date for begin and return.");
+    		textAreaConsole.setText("please select at least one country and enter the specific date for begin and return"
+    				+ "\nor you may check that the beginning date should be in front of end date.");
     	}
-		if(comparedate(dateselectionbeginA2).compareTo(comparedate(dateselectionendA2))>=0) {
-    		textAreaConsole.setText("the beginning date should be in front of end date");
-    		throw new Exception();
-    	}
-    	Stage chartwindow = (Stage) ((Node)event.getSource()).getScene().getWindow(); 
-		chartwindow.setScene(chartviewscene);
-		chartwindow.show();
     }
     
    /**
