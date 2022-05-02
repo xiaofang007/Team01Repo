@@ -239,7 +239,7 @@ public class Controller implements Initializable {
 	/**
 	 * This function is just used for testing whether getdate() can get the proper date.
 	 */
-	public DatePicker getdatepicker() {
+	public DatePicker getdatepickerA() {
 		return dateselectionbeginA2;
 	}
 }
