@@ -28,7 +28,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
- * This is the controller class building on "chartgeneratorA.fxml" for generating table
+ * This is the controller class building on "chartgeneratorC.fxml" for generating chartC
  * @author HU, Wenbin
  * 
  */
@@ -62,7 +62,7 @@ public class ChartcontrollerC {
 	 * 
 	 */
 	void setupchart(String begin, String end,LinkedList<String>selectedcountry) {
-		linechart.setTitle("Cumulative Confirmed COVID-19 Deaths(per 1M)");
+		linechart.setTitle("Cumulative Rate of Vaccination against COVID-19 Deaths");
 		linechart.setCursor(Cursor.CROSSHAIR);
         TaskC2 temp = new TaskC2();
         ArrayList<String> datalist = temp.storedata(begin, end, selectedcountry);

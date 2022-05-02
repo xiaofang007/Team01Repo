@@ -9,8 +9,8 @@ import java.util.LinkedList;
 import org.apache.commons.csv.CSVRecord;
 
 /**
- * This class is the main class for doing taskA2
- * @author fangxiao
+ * This class is the main class for doing taskC2
+ * @author HU, Wenbin
  * 
  */
 public class TaskC2 {
@@ -35,11 +35,11 @@ public class TaskC2 {
 					// here we get back the transformed date
 					String date = transformdate(rec.get("date"));
 					if (date.compareTo(begin)>=0 && date.compareTo(end)<=0) {
-						String confirmedpermillion = rec.get("people_vaccinated_per_hundred");
+						String deathsPerMillion = rec.get("people_vaccinated_per_hundred");
 						if(rec.get("people_vaccinated_per_hundred").equals("")) {
-							confirmedpermillion = "0";
+							deathsPerMillion = "0";
 						}
-						String data = country+","+date+","+confirmedpermillion;  
+						String data = country+","+date+","+deathsPerMillion;  
 						datalist.add(data);
 						available_country.add(country);
 					}

@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 
 /**
  * This is the controller class building on "tablegeneratorA.fxml" for generating table
- * @author HU, Wenbin
+ * @author fangxiao
  * 
  */
 public class TablecontrollerC {  // this controller is used for generating table.

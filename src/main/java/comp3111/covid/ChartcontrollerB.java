@@ -28,7 +28,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
- * This is the controller class building on "chartgeneratorA.fxml" for generating table
+ * This is the controller class building on "chartgeneratorB.fxml" for generating chartB
  * @author HU, Wenbin
  * 
  */

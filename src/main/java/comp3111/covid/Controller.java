@@ -317,7 +317,7 @@ public class Controller implements Initializable {
     @FXML
     void switchscenetochartC2(ActionEvent event) throws Exception {
     	FXMLLoader chartloader = new FXMLLoader();
-    	chartloader.setLocation(getClass().getResource("/chartgeneratorB.fxml"));
+    	chartloader.setLocation(getClass().getResource("/chartgeneratorC.fxml"));
     	Parent chartviewC = chartloader.load();
     	Scene chartviewscene = new Scene(chartviewC);
     	// access the controller and call a method
@@ -370,6 +370,7 @@ public class Controller implements Initializable {
 				if (((CheckMenuItem)e.getSource()).isSelected()) {
 					selectedcountryA.add(((CheckMenuItem)e.getSource()).getText());
 					selectedcountryB.add(((CheckMenuItem)e.getSource()).getText());
+					selectedcountryC.add(((CheckMenuItem)e.getSource()).getText());
 				}
 				else;
 			}			

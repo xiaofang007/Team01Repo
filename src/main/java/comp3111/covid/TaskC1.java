@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import org.apache.commons.csv.CSVRecord;
 
 /**
- * This class is the main class for doing taskA1
+ * This class is the main class for doing taskC1
  * @author fangxiao
  * 
  */
@@ -29,12 +29,12 @@ public class TaskC1{
 			for(CSVRecord rec: DataAnalysis.getFileParser("COVID_Dataset_v1.0.csv")) {
 				if(country.equals(rec.get("location"))) {
 					if (rec.get("date").equals(specific_date)) {
-						String confirmedCases = rec.get("total_cases");
-						if (rec.get("total_cases").equals("")) {
+						String confirmedCases = rec.get("people_fully_vaccinated");
+						if (rec.get("people_fully_vaccinated").equals("")) {
 							confirmedCases = "0";
 						}
-						confirmedpermillion = rec.get("total_cases_per_million");
-						if(rec.get("total_cases_per_million").equals("")) {
+						confirmedpermillion = rec.get("people_vaccinated_per_hundred");
+						if(rec.get("people_vaccinated_per_hundred").equals("")) {
 							confirmedpermillion = "0";
 						}
 						String list = country +","+ confirmedCases +","+ confirmedpermillion;

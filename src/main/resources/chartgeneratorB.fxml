@@ -19,7 +19,7 @@
             </CategoryAxis>
         </xAxis>
         <yAxis>
-          <NumberAxis label="Cases" side="LEFT">
+          <NumberAxis label="Deaths" side="LEFT">
                <tickLabelFont>
                   <Font name="System Bold" size="8.0" />
                </tickLabelFont>
