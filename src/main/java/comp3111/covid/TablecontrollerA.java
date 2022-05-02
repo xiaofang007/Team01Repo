@@ -76,7 +76,7 @@ public class TablecontrollerA {  // this controller is used for generating table
     	catch(Exception e) {
     		TableAreaconsoletable.setText("We do not have data about all countries on "+TaskA2.transformdate(data_date));
     	}
-	    title.setText("Number of Confirmed COVID-19 Cases as of "+data_date);	
+	    title.setText("Number of Confirmed COVID-19 Cases as of "+TaskA2.transformdate(data_date));	
     }
     
     /**
