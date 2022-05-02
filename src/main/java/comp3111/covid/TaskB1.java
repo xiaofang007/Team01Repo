@@ -9,7 +9,7 @@ import org.apache.commons.csv.CSVRecord;
  * @author fangxiao
  * 
  */
-public class TaskA1{
+public class TaskB1{
 	private LinkedList<String> datalist = new LinkedList<String>();
 	private LinkedList<String> nocountrydata = new LinkedList<String>();
 	
@@ -21,11 +21,16 @@ public class TaskA1{
 	 * 
 	 */
 	LinkedList<String> storedatacountry(String specific_date,LinkedList<String> selectedcountry) {   // this is to store data to generate table if it is a country
-		
-		
+
 		for(int i=0;i<selectedcountry.size();i++) {
 			String country = selectedcountry.get(i);
 			String confirmedpermillion ="abcd";
+//			
+//			for (int j=0; j<100; j--)
+//			{
+//				System.out.println("here");
+//			}
+//			
 			for(CSVRecord rec: DataAnalysis.getFileParser("COVID_Dataset_v1.0.csv")) {
 				if(country.equals(rec.get("location"))) {
 					if (rec.get("date").equals(specific_date)) {
@@ -37,6 +42,7 @@ public class TaskA1{
 						if(rec.get("total_cases_per_million").equals("")) {
 							confirmedpermillion = "0";
 						}
+						
 						String list = country +","+ confirmedCases +","+ confirmedpermillion;
 						datalist.add(list);
 						break;
