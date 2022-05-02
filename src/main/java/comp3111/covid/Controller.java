@@ -141,7 +141,7 @@ public class Controller implements Initializable {
     @FXML
     void switchscenetotableA1(ActionEvent event) throws IOException{
     	FXMLLoader tableloader = new FXMLLoader();
-    	tableloader.setLocation(getClass().getResource("/tablegenerator.fxml"));
+    	tableloader.setLocation(getClass().getResource("/tablegeneratorA.fxml"));
     	Parent tableviewA = tableloader.load();
     	Scene tableviewscene = new Scene(tableviewA);
     	// access the controller and call a method
@@ -164,7 +164,7 @@ public class Controller implements Initializable {
     @FXML
     void switchscenetochartA2(ActionEvent event) throws Exception {
     	FXMLLoader chartloader = new FXMLLoader();
-    	chartloader.setLocation(getClass().getResource("/chartgenerator.fxml"));
+    	chartloader.setLocation(getClass().getResource("/chartgeneratorA.fxml"));
     	Parent chartviewA = chartloader.load();
     	Scene chartviewscene = new Scene(chartviewA);
     	// access the controller and call a method

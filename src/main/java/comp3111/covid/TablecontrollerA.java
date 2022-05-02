@@ -19,7 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
- * This is the controller class building on "tablegenerator.fxml" for generating table
+ * This is the controller class building on "tablegeneratorA.fxml" for generating table
  * @author fangxiao
  * 
  */
