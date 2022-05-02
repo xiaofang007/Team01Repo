@@ -32,7 +32,7 @@ import javafx.stage.Stage;
  * @author HU, Wenbin
  * 
  */
-public class ChartcontrollerB {
+public class ChartcontrollerC {
 	
     @FXML
     private Button Return;
@@ -64,7 +64,7 @@ public class ChartcontrollerB {
 	void setupchart(String begin, String end,LinkedList<String>selectedcountry) {
 		linechart.setTitle("Cumulative Confirmed COVID-19 Deaths(per 1M)");
 		linechart.setCursor(Cursor.CROSSHAIR);
-        TaskB2 temp = new TaskB2();
+        TaskC2 temp = new TaskC2();
         ArrayList<String> datalist = temp.storedata(begin, end, selectedcountry);
         try {
         	String[] split_data = datalist.get(0).split(" ");
@@ -87,7 +87,7 @@ public class ChartcontrollerB {
         			linechart.getData().add(series[count]);
         			series[count].setName(current_country);
         			begin_date = current_date;
-        			if (!begin_date.equals(TaskB2.transformdate(begin))) {
+        			if (!begin_date.equals(TaskC2.transformdate(begin))) {
         				String tempreport = "We just have data of " + current_country+" from " + begin_date;
         				chartreport += tempreport;
         				if(i == datalist.size()-1 || !datalist.get(i+1).split(",")[0].equals(current_country)) {
@@ -113,14 +113,14 @@ public class ChartcontrollerB {
         			String countryname = series[count-1].getName();
         			nodedata.setNode(new HoveredNode(countryname,nodedata.getXValue().toString(),nodedata.getYValue().floatValue()));
         			series[count-1].getData().add(nodedata);
-        			if(begin_date.equals(TaskB2.transformdate(begin)) && (i == datalist.size()-1 || (!datalist.get(i+1).split(",")[0].equals(current_country)))
-        					&& (!end_date.equals(TaskB2.transformdate(end)))) {
+        			if(begin_date.equals(TaskC2.transformdate(begin)) && (i == datalist.size()-1 || (!datalist.get(i+1).split(",")[0].equals(current_country)))
+        					&& (!end_date.equals(TaskC2.transformdate(end)))) {
         				String tempreport = "We just have data of " +current_country+" from " + begin_date+" to "+end_date+"(the data we have ends at "+end_date+")"+"\n";
         				chartreport +=tempreport;
         			}
         			// when the beginning date is not equal to the begin date we require.
-        			else if((!begin_date.equals(TaskB2.transformdate(begin))) &&(i == datalist.size()-1 || (!datalist.get(i+1).split(",")[0].equals(current_country)))) {
-        				if (!end_date.equals(TaskB2.transformdate(end))) {
+        			else if((!begin_date.equals(TaskC2.transformdate(begin))) &&(i == datalist.size()-1 || (!datalist.get(i+1).split(",")[0].equals(current_country)))) {
+        				if (!end_date.equals(TaskC2.transformdate(end))) {
         					chartreport = chartreport+" to "+current_date+"(the data we have begins at "+begin_date+" and ends at "+end_date+")"+"\n";
         				}
         				else {
@@ -130,7 +130,7 @@ public class ChartcontrollerB {
         			else;
         		}
         	}
-        	ArrayList<String> datelist = temp.getallDates(TaskB2.transformdate(begin), TaskB2.transformdate(end));
+        	ArrayList<String> datelist = temp.getallDates(TaskC2.transformdate(begin), TaskC2.transformdate(end));
         	CategoryAxis xAxis = (CategoryAxis) linechart.getXAxis();
             ObservableList<String> categories = FXCollections.observableArrayList(datelist);
             xAxis.setCategories(categories);

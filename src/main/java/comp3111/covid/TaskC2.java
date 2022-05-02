@@ -10,10 +10,10 @@ import org.apache.commons.csv.CSVRecord;
 
 /**
  * This class is the main class for doing taskA2
- * @author HU, Wenbin
+ * @author fangxiao
  * 
  */
-public class TaskB2 {
+public class TaskC2 {
 	private ArrayList<String> datalist = new ArrayList<String>();
 	private HashSet<String> available_country = new HashSet<String>();
 	
@@ -35,11 +35,11 @@ public class TaskB2 {
 					// here we get back the transformed date
 					String date = transformdate(rec.get("date"));
 					if (date.compareTo(begin)>=0 && date.compareTo(end)<=0) {
-						String deathsPerMillion = rec.get("total_deaths_per_million");
-						if(rec.get("total_deaths_per_million").equals("")) {
-							deathsPerMillion = "0";
+						String confirmedpermillion = rec.get("people_vaccinated_per_hundred");
+						if(rec.get("people_vaccinated_per_hundred").equals("")) {
+							confirmedpermillion = "0";
 						}
-						String data = country+","+date+","+deathsPerMillion;  
+						String data = country+","+date+","+confirmedpermillion;  
 						datalist.add(data);
 						available_country.add(country);
 					}

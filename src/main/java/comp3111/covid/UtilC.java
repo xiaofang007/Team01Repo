@@ -3,13 +3,13 @@ import javafx.beans.property.SimpleStringProperty;
 
 /**
  * utility class to transform the data stream into the form that can be shown on the table.
- * @author HU, Wenbin
+ * @author fangxiao
  * 
  */
-public class UtilB {   // this is class is about utilization 
+public class UtilC {   // this is class is about utilization 
 	private SimpleStringProperty country;
-	private SimpleStringProperty totalDeaths;
-	private SimpleStringProperty totalDeathsPerMillion;
+	private SimpleStringProperty totalcase;
+	private SimpleStringProperty totalpermillion;
 	
 	/**
 	 * constructor
@@ -19,10 +19,10 @@ public class UtilB {   // this is class is about utilization
 	 * @throws Exception
 	 * 
 	 */
-	public UtilB(SimpleStringProperty c,SimpleStringProperty tc, SimpleStringProperty tp) throws Exception {
+	public UtilC(SimpleStringProperty c,SimpleStringProperty tc, SimpleStringProperty tp) throws Exception {
 		country = c;
-		totalDeaths = tc;
-		totalDeathsPerMillion = tp;
+		totalcase = tc;
+		totalpermillion = tp;
 	}
 	
 	/**
@@ -40,7 +40,7 @@ public class UtilB {   // this is class is about utilization
 	 *
 	 */
 	public String getTotalcase() {
-		return totalDeaths.get();
+		return totalcase.get();
 	}
 	
 	/**
@@ -49,7 +49,7 @@ public class UtilB {   // this is class is about utilization
 	 *
 	 */
 	public String getTotalpermillion() {
-		return totalDeathsPerMillion.get();
+		return totalpermillion.get();
 	}
 	
 }

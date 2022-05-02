@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  * @author HU, Wenbin
  * 
  */
-public class TablecontrollerB {  // this controller is used for generating table.
+public class TablecontrollerC {  // this controller is used for generating table.
 	private LinkedList<String> datalist;
     
     @FXML
@@ -36,16 +36,16 @@ public class TablecontrollerB {  // this controller is used for generating table
     private TextArea TableAreaconsoletable;
     
     @FXML
-    private TableView<UtilB> tableview;
+    private TableView<UtilC> tableview;
     
     @FXML
-    private TableColumn<UtilB,String> countrycolumn;
+    private TableColumn<UtilC,String> countrycolumn;
     
     @FXML
-    private TableColumn<UtilB,String> totalcasecolumn;
+    private TableColumn<UtilC,String> totalcasecolumn;
     
     @FXML
-    private TableColumn<UtilB,String> totalpermillioncolumn;
+    private TableColumn<UtilC,String> totalpermillioncolumn;
 	
     /**
      * This is the function to pass the data to the controller
@@ -55,7 +55,7 @@ public class TablecontrollerB {  // this controller is used for generating table
      * 
      */
     public void initData(String data_date, LinkedList<String>selectedcountry) throws Exception {
-    	TaskB1 temp = new TaskB1();
+    	TaskC1 temp = new TaskC1();
     	try {
     		datalist = temp.storedatacountry(data_date,selectedcountry);
     		datalist.getFirst();
@@ -76,7 +76,7 @@ public class TablecontrollerB {  // this controller is used for generating table
     	catch(Exception e) {
     		TableAreaconsoletable.setText("We do not have data about all countries on "+TaskB2.transformdate(data_date));
     	}
-	    title.setText("Number of Confirmed COVID-19 Deaths as of "+data_date);	
+	    title.setText("Rate of Vaccination Against COVID-19 as of "+data_date);	
     }
     
     /**
@@ -86,9 +86,9 @@ public class TablecontrollerB {  // this controller is used for generating table
      * 
      */
 	public void setuptable(LinkedList<String> datalist) throws Exception {
-		countrycolumn.setCellValueFactory(new PropertyValueFactory<UtilB,String>("country"));
-		totalcasecolumn.setCellValueFactory(new PropertyValueFactory<UtilB,String>("totalcase"));
-		totalpermillioncolumn.setCellValueFactory(new PropertyValueFactory<UtilB,String>("totalpermillion"));
+		countrycolumn.setCellValueFactory(new PropertyValueFactory<UtilC,String>("country"));
+		totalcasecolumn.setCellValueFactory(new PropertyValueFactory<UtilC,String>("totalcase"));
+		totalpermillioncolumn.setCellValueFactory(new PropertyValueFactory<UtilC,String>("totalpermillion"));
 		tableview.setItems(getdata());
 	}
 	
@@ -96,12 +96,12 @@ public class TablecontrollerB {  // this controller is used for generating table
 	 *  This method will return an ObservableList of String Objects which will be added to the table
 	 * @throws Exception 
 	 */
-	private ObservableList<UtilB> getdata() throws Exception {
-		ObservableList<UtilB> data = FXCollections.observableArrayList();
+	private ObservableList<UtilC> getdata() throws Exception {
+		ObservableList<UtilC> data = FXCollections.observableArrayList();
 		for(int i=0;i<datalist.size();i++) {
 			String[] split = null;
 			split = datalist.get(i).split(",");
-			data.add(new UtilB(new SimpleStringProperty(split[0]),new SimpleStringProperty(split[1]), new SimpleStringProperty(split[2])));
+			data.add(new UtilC(new SimpleStringProperty(split[0]),new SimpleStringProperty(split[1]), new SimpleStringProperty(split[2])));
 		}
 		return data;
 	}
@@ -139,3 +139,4 @@ public class TablecontrollerB {  // this controller is used for generating table
 		return datalist;
 	}
 }
+
