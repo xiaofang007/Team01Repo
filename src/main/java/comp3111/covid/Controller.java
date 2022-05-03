@@ -372,7 +372,15 @@ public class Controller implements Initializable {
 					selectedcountryB.add(((CheckMenuItem)e.getSource()).getText());
 					selectedcountryC.add(((CheckMenuItem)e.getSource()).getText());
 				}
-				else;
+				else {
+					for(int i=0;i<selectedcountryA.size();i++) {
+						if(((CheckMenuItem)e.getSource()).getText().equals(selectedcountryA.get(i))) {
+							selectedcountryA.remove(i);
+							selectedcountryB.remove(i);
+							selectedcountryC.remove(i);
+						}
+					}
+				}
 			}			
 		};
 		String previous_country = "";
@@ -404,8 +412,6 @@ public class Controller implements Initializable {
 				item6.setOnAction(event);
 				countrymenuC1.getItems().add(item5);
 				countrymenuC2.getItems().add(item6);
-				
-				
 				previous_country = current_country;
 			}
 		}

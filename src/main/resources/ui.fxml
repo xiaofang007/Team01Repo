@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="679.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.covid.Controller">
+<VBox prefHeight="679.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.covid.Controller">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="437.0" prefWidth="719.0">
       <children>
@@ -50,10 +50,9 @@
                               <MenuBar layoutX="255.0" layoutY="136.0">
                                 <menus>
                                   <Menu fx:id="countrymenuA1" mnemonicParsing="false" text="Country of Interest">
-                                    <items>
-                                      <MenuItem mnemonicParsing="false" text="Close" />
-                                    </items>
-                                  </Menu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Close" />
+                                       </items></Menu>
                                 </menus>
                               </MenuBar>
                               <Label layoutX="14.0" layoutY="139.0" text="Please click the menu to select:">
@@ -78,10 +77,9 @@
                               <MenuBar layoutX="255.0" layoutY="136.0">
                                 <menus>
                                   <Menu fx:id="countrymenuB1" mnemonicParsing="false" text="Country of Interest">
-                                    <items>
-                                      <MenuItem mnemonicParsing="false" text="Close" />
-                                    </items>
-                                  </Menu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Close" />
+                                       </items></Menu>
                                 </menus>
                               </MenuBar>
                               <Label layoutX="14.0" layoutY="139.0" text="Please click the menu to select:">
@@ -105,11 +103,7 @@
                               <DatePicker fx:id="dateselectiontaskC" layoutX="232.0" layoutY="14.0" promptText="please select a date" />
                               <MenuBar layoutX="255.0" layoutY="136.0">
                                 <menus>
-                                  <Menu fx:id="countrymenuC1" mnemonicParsing="false" text="Country of Interest">
-                                    <items>
-                                      <MenuItem mnemonicParsing="false" text="Close" />
-                                    </items>
-                                  </Menu>
+                                  <Menu fx:id="countrymenuC1" mnemonicParsing="false" text="Country of Interest" />
                                 </menus>
                               </MenuBar>
                               <Label layoutX="14.0" layoutY="139.0" text="Please click the menu to select:">
