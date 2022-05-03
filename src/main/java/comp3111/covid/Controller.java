@@ -373,6 +373,7 @@ public class Controller implements Initializable {
 					selectedcountryC.add(((CheckMenuItem)e.getSource()).getText());
 				}
 				else {
+					// fix the bug(cant remove mistaken selected countries)
 					for(int i=0; i<selectedcountryA.size(); i++)
 					{
 						if(((CheckMenuItem)e.getSource()).getText().equals(selectedcountryA.get(i)))
