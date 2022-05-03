@@ -5,11 +5,11 @@ import java.util.LinkedList;
 import org.apache.commons.csv.CSVRecord;
 
 /**
- * This class is the main class for doing taskA1
- * @author fangxiao
+ * This class is the main class for doing taskB1
+ * @author HU, Wenbin
  * 
  */
-public class TaskA1{
+public class TaskB1{
 	private LinkedList<String> datalist = new LinkedList<String>();
 	private LinkedList<String> nocountrydata = new LinkedList<String>();
 	
@@ -21,23 +21,24 @@ public class TaskA1{
 	 * 
 	 */
 	LinkedList<String> storedatacountry(String specific_date,LinkedList<String> selectedcountry) {   // this is to store data to generate table if it is a country
-		
-		
+
 		for(int i=0;i<selectedcountry.size();i++) {
 			String country = selectedcountry.get(i);
-			String confirmedpermillion ="abcd";
+			String deathsPerMillion ="abcd";
+		
 			for(CSVRecord rec: DataAnalysis.getFileParser("COVID_Dataset_v1.0.csv")) {
 				if(country.equals(rec.get("location"))) {
 					if (rec.get("date").equals(specific_date)) {
-						String confirmedCases = rec.get("total_cases");
-						if (rec.get("total_cases").equals("")) {
-							confirmedCases = "0";
+						String deathsCases = rec.get("total_deaths");
+						if (rec.get("total_deaths").equals("")) {
+							deathsCases = "0";
 						}
-						confirmedpermillion = rec.get("total_cases_per_million");
-						if(rec.get("total_cases_per_million").equals("")) {
-							confirmedpermillion = "0";
+						deathsPerMillion = rec.get("total_deaths_per_million");
+						if(rec.get("total_deaths_per_million").equals("")) {
+							deathsPerMillion = "0";
 						}
-						String list = country +","+ confirmedCases +","+ confirmedpermillion;
+						
+						String list = country +","+ deathsCases +","+ deathsPerMillion;
 						datalist.add(list);
 						break;
 					}
@@ -45,7 +46,7 @@ public class TaskA1{
 				}
 				else;
 			}
-			if(confirmedpermillion.equals("abcd")) nocountrydata.add(country);	
+			if(deathsPerMillion.equals("abcd")) nocountrydata.add(country);	
 		}
 		return datalist;
 	}
