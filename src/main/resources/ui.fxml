@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="679.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.covid.Controller">
+<VBox prefHeight="679.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.covid.Controller">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="437.0" prefWidth="719.0">
       <children>
@@ -59,11 +60,13 @@
                     <content>
                         <AnchorPane>
                            <children>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="719.0">
-                                 <children>
-                                    <TextArea layoutX="14.0" layoutY="14.0" prefHeight="292.0" prefWidth="694.0" text="Task C1: Generate data tables showing the rate of vaccination against COVID-19 by country&#10;&#10;Input&#10;•&#9;Specify the date of interest&#10;•&#9;Specify the countries of interest&#10;&#10;Output&#10;•&#9;Label the data table with a proper title: &quot;Rate of Vaccination against COVID-19 as of [Date of Interest]&quot;&#10;•&#9;Present data in 3 columns with proper headings of &quot;Country&quot;, &quot;Fully Vaccinated&quot;, and &quot;Rate of Vaccination&quot;&#10;•&#9;Present data for the countries of interest in rows&#10;&#10;&#10;" wrapText="true" />
-                                 </children>
-                              </AnchorPane>
+                              <Label layoutX="131.0" layoutY="47.0" text="Dataset" />
+                              <TextField fx:id="textfieldDatasetTAB3" layoutX="189.0" layoutY="43.0" text="COVID_Dataset_v1.0.csv" />
+                              <Label layoutX="131.0" layoutY="89.0" text="ISO Code" />
+                              <Button fx:id="buttonTableCReportTab3" layoutX="185.0" layoutY="195.0" mnemonicParsing="false" onAction="#getReportTAB3" text="Get Table" />
+                              <Label layoutX="131.0" layoutY="123.0" text="Date" />
+                              <TextField fx:id="dateInputTab3" layoutX="191.0" layoutY="119.0" text="2020/1/1" />
+                              <ChoiceBox fx:id="countryChoiceTab3" layoutX="194.0" layoutY="85.0" onMouseClicked="#addCountriesToCheckBoxTab3" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -90,7 +93,16 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TextArea layoutX="18.0" layoutY="7.0" prefHeight="298.0" prefWidth="682.0" text="Task C2: Generate data charts showing the cumulative rate of vaccination against COVID-19 by country&#10;&#10;Input&#10;•&#9;Specify the period of interest&#10;•&#9;Specify the countries of interest&#10;&#10;Output&#10;•&#9;Label the data chart with a proper title: &quot;Cumulative Rate of Vaccination against COVID-19 &quot;&#10;•&#9;Label the x-axis and y-axis with proper scales&#10;•&#9;Present data in coloured cumulative curves labelled with corresponding countries&#10;&#10;" wrapText="true" />
+                              <TextArea layoutX="18.0" layoutY="7.0" prefHeight="298.0" prefWidth="682.0" wrapText="true" />
+                              <Label layoutX="141.0" layoutY="57.0" text="Dataset" />
+                              <TextField fx:id="textfieldDatasetCHART3" layoutX="199.0" layoutY="53.0" text="COVID_Dataset_v1.0.csv" />
+                              <Label layoutX="141.0" layoutY="99.0" text="ISO Code" />
+                              <Button fx:id="buttonTableCReportTab31" layoutX="204.0" layoutY="234.0" mnemonicParsing="false" onAction="#getReportCHART3" text="Get Chart" />
+                              <Label layoutX="141.0" layoutY="133.0" text="startDate" />
+                              <TextField fx:id="startDateCHART3" layoutX="204.0" layoutY="129.0" text="2020/1/1" />
+                              <ChoiceBox fx:id="countryChoiceCHART3" layoutX="204.0" layoutY="95.0" onMouseClicked="#addCountriesToCheckBoxTab3" prefWidth="150.0" />
+                              <Label layoutX="141.0" layoutY="167.0" text="endDate" />
+                              <TextField fx:id="endDateCHART3" layoutX="204.0" layoutY="163.0" text="2020/1/1" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -99,11 +111,11 @@
             </TabPane>
       </children>
     </AnchorPane>
-      <Label text="Console" />
       <ScrollPane prefHeight="387.0" prefWidth="719.0">
          <content>
             <TextArea fx:id="textAreaConsole" prefHeight="300.0" prefWidth="718.0" />
          </content>
       </ScrollPane>
+      <TextField />
   </children>
 </VBox>

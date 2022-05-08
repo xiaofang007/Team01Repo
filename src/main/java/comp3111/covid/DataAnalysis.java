@@ -10,6 +10,7 @@ import edu.duke.*;
  * @version	1.1
  * 
  */
+
 public class DataAnalysis {
  
 	public static CSVParser getFileParser(String dataset) {
@@ -105,5 +106,15 @@ public class DataAnalysis {
 			
 			return oReport;
 	 }
- 
+	 // input: csvdata, country_code, date,
+	 //	output:country, vaccination number,vaccination rate 
+	 public static String getVaccinationRateTAB3(String dataset, String iso_code,String date) {
+		 return "hk vacinationrate";
+	 }
+	 
+	// input: csvdata, country_code, startDate,endDate
+	//	output:country, vaccination number,vaccination rate 
+	 public static String getVaccinationRateChart3(String dataset, String iso_code,String startDate,String endDate) {
+		 return "(country , date , vacinationrate)";
+	}
 }
