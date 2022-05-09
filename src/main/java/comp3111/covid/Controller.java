@@ -1,5 +1,7 @@
 package comp3111.covid;
 
+import java.util.HashMap;
+
 import org.apache.commons.csv.CSVRecord;
 
 import javafx.event.ActionEvent;
@@ -114,14 +116,7 @@ public class Controller {
 
     /*Input
      * countries&&Date*/
-   
-    @FXML
-    void doTCGetReportTab3(ActionEvent event) {
-    	//String iDataset = textfieldDataset.getText();
-    	String iISO = textfieldISOtab3.getText();
-    	//String oReport = DataAnalysis.getConfirmedCases(iDataset, iISO);
-    	textAreaConsole.setText(iISO);
-    }
+
     
     //Tab3 begins heren the list to the checkbox 
 
@@ -131,10 +126,10 @@ public class Controller {
     	/*String iDataset = textfieldDataset.getText();
     	String iISO = textfieldISO.getText();*/
     	String Dataset=textfieldDatasetTAB3.getText();
-    	String CountryCode="AFG,HKO";
+    	String[] CountryCode={"AFG,HKO"};
     	String Date="01/01/2020";
-    	String oReport = DataAnalysis.getVaccinationRateTAB3(Dataset, CountryCode,Date);
-    	textAreaConsole.setText(oReport);
+    	HashMap<String, CountryVacnumVacrate> oReport = DataAnalysis.getVaccinationRateTAB3(Dataset, CountryCode,Date);
+    	textAreaConsole.setText("modify this later");
     }
     
     //TODO: 
