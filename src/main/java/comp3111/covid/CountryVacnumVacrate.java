@@ -16,11 +16,11 @@ public class CountryVacnumVacrate {
     }
 
 
-    public String countryName() {
+    public String getCountryName() {
         return countryName;
     }
 
-    public void setcountryName(String countryName) {
+    public void setCountryName(String countryName) {
         this.countryName = countryName;
     }
 

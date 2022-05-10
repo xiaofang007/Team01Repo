@@ -132,6 +132,7 @@ public class DataAnalysis {
 						CountryVacnumVacrate record =map.get(rec.get("iso_code"));
 						record.setPeopleVaccinated(peopleVaccinated);
 						record.setVaccinationRate(vaccinationRate);
+						record.setCountryName(rec.get("iso_code"));
 						}
 			}
 		 }
