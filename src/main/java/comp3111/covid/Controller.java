@@ -169,6 +169,8 @@ public class Controller {
     	outputTableView3.getItems().add(new CountryVacnumVacrate("HKG", 2000000,0.3));
         outputVBoxTab3= new VBox(outputTableView3);
         System.out.println("Success");
+        Scene scene = new Scene(outputVBoxTab3);
+
         
     }
     
