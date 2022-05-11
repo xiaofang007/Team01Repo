@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.covid.Table3Controller">
+   <children>
+      <TextArea fx:id="title" prefHeight="81.0" prefWidth="600.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </TextArea>
+      <TableView fx:id="tableview" prefHeight="333.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="countrycolumn" prefWidth="171.20001143217087" text="Country" />
+          <TableColumn fx:id="totalcasecolumn" prefWidth="227.20001220703125" text="Fully Vaccinated" />
+            <TableColumn fx:id="totalpermillioncolumn" prefWidth="199.0" text="Rate of Vaccination" />
+        </columns>
+      </TableView>
+      <TextArea fx:id="TableAreaconsoletable" prefHeight="105.0" prefWidth="600.0" />
+      <Button fx:id="Return" alignment="CENTER" mnemonicParsing="false" onAction="#Returntoui" text="Return" />
+   </children>
+</VBox>

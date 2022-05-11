@@ -149,7 +149,7 @@ public class Controller {
     	String Dataset=textfieldDatasetTAB3.getText();
     	String[] CountryCode={"AFG,HKO"};
     	String Date="01/01/2020";
-    	HashMap<String, CountryVacnumVacrate> oReport = DataAnalysis.getVaccinationRateTAB3(Dataset, CountryCode,Date);
+    	HashMap<String, CountryVacnumVacrate> oReport = Table3DataAnalysis.getVaccinationRateTAB3(Dataset, CountryCode,Date);
     	TableView outputTableView3 = new TableView();
 
         TableColumn<CountryVacnumVacrate, String> outputTableColumn1Tab3 = new TableColumn<>("Country");
@@ -183,7 +183,7 @@ public class Controller {
     	String countryCode="B";
     	String startDate="C";
     	String endDate="D";
-    	String oReport = DataAnalysis.getVaccinationRateChart3(dataset, countryCode,startDate,endDate);
+    	String oReport = Table3DataAnalysis.getVaccinationRateChart3(dataset, countryCode,startDate,endDate);
     	textAreaConsole.setText(oReport);
     }
     
