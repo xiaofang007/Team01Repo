@@ -6,18 +6,18 @@ import org.apache.commons.csv.CSVRecord;
 public class Table3DataAnalysis {
 	// input: csvdata, country_code, date,
 		 //	output:country, vaccination number,vaccination rate 
-		 public static HashMap<String, CountryVacnumVacrate> getVaccinationRateTAB3(String dataset, String[] iso_code,String date) {
+		 public static HashMap<String, CountryVacnumVacrate> getVaccinationRateTAB3(String[] countries,String date) {
 			 //initialize the hash table
 			 HashMap<String, CountryVacnumVacrate> map = new HashMap<>();
-			 for(int i=0;i<iso_code.length;i++) 
+			 for(int i=0;i<countries.length;i++) 
 			 	{
-				 map.put(iso_code[i],new CountryVacnumVacrate() );
+				 map.put(countries[i],new CountryVacnumVacrate() );
 			 	}
 			 
-			 for (CSVRecord rec : DataAnalysis.getFileParser(dataset))
+			 for (CSVRecord rec : DataAnalysis.getFileParser("COVID_Dataset_v1.0.csv"))
 			 	{
 				 if (rec.get("date").equals(date)) {
-						if(map.containsKey(rec.get("iso_code"))) 
+						if(map.containsKey(rec.get("location"))) 
 							{
 							double vaccinationRate=0;
 							if(rec.get("people_fully_vaccinated_per_hundred").isEmpty()==false)
@@ -25,10 +25,10 @@ public class Table3DataAnalysis {
 							double peopleVaccinated=0;
 							if(!rec.get("total_vaccinations").isEmpty()) 				
 								peopleVaccinated=Double.parseDouble(rec.get("people_vaccinated"));
-							CountryVacnumVacrate record =map.get(rec.get("iso_code"));
+							CountryVacnumVacrate record =map.get(rec.get("location"));
 							record.setPeopleVaccinated(peopleVaccinated);
 							record.setVaccinationRate(vaccinationRate);
-							record.setCountryName(rec.get("iso_code"));
+							record.setCountryName(rec.get("location"));
 							}
 				}
 			 }
@@ -45,7 +45,7 @@ public class Table3DataAnalysis {
 					System.out.println("HelloWorld");
 					String countries[]= {"ABW"};
 					String date="6/21/2021";
-					HashMap<String, CountryVacnumVacrate> mymap=getVaccinationRateTAB3("COVID_Dataset_v1.0.csv",countries,date);
+					HashMap<String, CountryVacnumVacrate> mymap=getVaccinationRateTAB3(countries,date);
 					for (String country: mymap.keySet()) {
 					    String key = country;
 					    CountryVacnumVacrate value = mymap.get(country);

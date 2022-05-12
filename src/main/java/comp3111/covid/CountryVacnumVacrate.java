@@ -2,14 +2,14 @@ package comp3111.covid;
 public class CountryVacnumVacrate {
 
     private String countryName = null;
-    private double peopleVaccinated = 0;
-    private double vaccinationRate = 0;
+    private Double peopleVaccinated = 0.0;
+    private Double vaccinationRate = 0.0;
 
 
     public CountryVacnumVacrate() {
     }
 
-    public CountryVacnumVacrate(String countryName, double peopleVaccinated,double vaccinationRate) {
+    public CountryVacnumVacrate(String countryName, Double peopleVaccinated,Double vaccinationRate) {
         this.countryName = countryName;
         this.peopleVaccinated = peopleVaccinated;
         this.vaccinationRate = vaccinationRate;
@@ -28,7 +28,7 @@ public class CountryVacnumVacrate {
         return peopleVaccinated;
     }
 
-    public void setPeopleVaccinated(double peopleVaccinated) {
+    public void setPeopleVaccinated(Double peopleVaccinated) {
         this.peopleVaccinated = peopleVaccinated;
     }
     
@@ -36,7 +36,7 @@ public class CountryVacnumVacrate {
         return vaccinationRate;
     }
 
-    public void setVaccinationRate(double vaccinationRate) {
+    public void setVaccinationRate(Double vaccinationRate) {
         this.vaccinationRate = vaccinationRate;
     }
 
