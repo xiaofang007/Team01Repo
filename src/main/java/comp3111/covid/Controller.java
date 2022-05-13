@@ -439,13 +439,17 @@ public class Controller implements Initializable {
     	Parent chartviewC = chartloader.load();
     	Scene chartviewscene = new Scene(chartviewC);
     	// access the controller and call a method
-    	ChartcontrollerC chartcontroller = chartloader.getController();
+    	Chart3Controller chartcontroller = chartloader.getController();
     	try{
     		selectedcountryC.getFirst();		
     		if(comparedate(dateselectionbeginC2).compareTo(comparedate(dateselectionendC2))>=0) {
         		throw new Exception();
         	}       	
-    		chartcontroller.initData(getdate(dateselectionbeginC2), getdate(dateselectionendC2), selectedcountryC);
+    		String countrySelected[]=new String[selectedcountryC.size()];
+    		for(int i=0;i<selectedcountryC.size();i++) {
+    			countrySelected[i]=selectedcountryC.get(i);
+    		}
+    		chartcontroller.setupchart(getdate(dateselectionbeginC2), getdate(dateselectionendC2), countrySelected);
         	Stage chartwindow = (Stage) ((Node)event.getSource()).getScene().getWindow(); 
     		chartwindow.setScene(chartviewscene);
     		chartwindow.show();
