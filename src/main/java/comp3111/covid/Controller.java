@@ -240,7 +240,7 @@ public class Controller implements Initializable {
     	String Dataset=textfieldDatasetTAB3.getText();
     	String[] CountryCode={"AFG,HKO"};
     	String Date="01/01/2020";
-    	HashMap<String, CountryVacnumVacrate> oReport = Table3DataAnalysis.getVaccinationRateTAB3(CountryCode,Date);
+    	//HashMap<String, CountryVacnumVacrate> oReport = Table3DataAnalysis.getVaccinationRateTAB3(CountryCode,Date,);
     	TableView outputTableView3 = new TableView();
 
         TableColumn<CountryVacnumVacrate, String> outputTableColumn1Tab3 = new TableColumn<>("Country");
@@ -265,18 +265,18 @@ public class Controller implements Initializable {
         
     }
     
-    //TODO: 
+    /*TODO: 
     @FXML
     void getReportCHART3(ActionEvent event) {
-    	/*String iDataset = textfieldDataset.getText();
-    	String iISO = textfieldISO.getText();*/
+    	String iDataset = textfieldDataset.getText();
+    	String iISO = textfieldISO.getText();
     	String dataset="A";
     	String countryCode="B";
     	String startDate="C";
     	String endDate="D";
     	String oReport = Table3DataAnalysis.getVaccinationRateChart3(dataset, countryCode,startDate,endDate);
     	textAreaConsole.setText(oReport);
-    }
+    }*/
     
     @FXML
     void addCountriesToCheckBoxTab3(MouseEvent event) {

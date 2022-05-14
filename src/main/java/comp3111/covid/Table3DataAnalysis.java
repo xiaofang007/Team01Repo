@@ -3,10 +3,13 @@ package comp3111.covid;
 import java.util.HashMap;
 import org.apache.commons.csv.CSVRecord;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextArea;
 public class Table3DataAnalysis {
 	// input: csvdata, country_code, date,
 		 //	output:country, vaccination number,vaccination rate 
-		 public static HashMap<String, CountryVacnumVacrate> getVaccinationRateTAB3(String[] countries,String date) {
+		 public static HashMap<String, CountryVacnumVacrate> getVaccinationRateTAB3(String[] countries,String date, TextArea tableAreaconsoletable) {
 			 //initialize the hash table
 			 HashMap<String, CountryVacnumVacrate> map = new HashMap<>();
 			 for(int i=0;i<countries.length;i++) 
@@ -22,9 +25,13 @@ public class Table3DataAnalysis {
 							double vaccinationRate=0;
 							if(rec.get("people_fully_vaccinated_per_hundred").isEmpty()==false)
 								vaccinationRate=Double.parseDouble(rec.get("people_fully_vaccinated_per_hundred"));
+							else {tableAreaconsoletable.setText("we do not have data of fully vaccinated rate in "+rec.get("location")+" on "+rec.get("date"));}
 							double peopleVaccinated=0;
 							if(!rec.get("total_vaccinations").isEmpty()) 				
 								peopleVaccinated=Double.parseDouble(rec.get("people_vaccinated"));
+							else {
+								tableAreaconsoletable.setText("we do not have data of number fully vaccinated people  in "+rec.get("location")+" on "+rec.get("date"));}
+							
 							CountryVacnumVacrate record =map.get(rec.get("location"));
 							record.setPeopleVaccinated(peopleVaccinated);
 							record.setVaccinationRate(vaccinationRate);
@@ -35,21 +42,7 @@ public class Table3DataAnalysis {
 			 return map;
 		 }
 		 
-		// input: csvdata, country_code, startDate,endDate
-			//	output:country, vaccination number,vaccination rate 
-			 public static String getVaccinationRateChart3(String dataset, String iso_code,String startDate,String endDate) {
-				 return "(country , date , vacinationrate)";
-			}
+
 			 
-			 public static void main(String args[]) {
-					System.out.println("HelloWorld");
-					String countries[]= {"ABW"};
-					String date="6/21/2021";
-					HashMap<String, CountryVacnumVacrate> mymap=getVaccinationRateTAB3(countries,date);
-					for (String country: mymap.keySet()) {
-					    String key = country;
-					    CountryVacnumVacrate value = mymap.get(country);
-					    System.out.println(key + " " + value.getPeopleVaccinated()+" "+value.getVaccinationRate());
-					}
-				}
+
 }
