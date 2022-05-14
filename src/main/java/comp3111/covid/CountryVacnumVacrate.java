@@ -4,7 +4,7 @@ public class CountryVacnumVacrate {
     private String countryName = null;
     private Double peopleVaccinated = 0.0;
     private Double vaccinationRate = 0.0;
-
+    private Boolean toType=true;
 
     public CountryVacnumVacrate() {
     }
@@ -38,6 +38,14 @@ public class CountryVacnumVacrate {
 
     public void setVaccinationRate(Double vaccinationRate) {
         this.vaccinationRate = vaccinationRate;
+    }
+    
+    public Boolean getToType() {
+        return toType;
+    }
+
+    public void setToType(Boolean toType) {
+        this.toType =toType;
     }
 
 

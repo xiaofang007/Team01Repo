@@ -66,6 +66,7 @@ public class Table3Controller {
 		
 		HashMap<String, CountryVacnumVacrate> mymap=Table3DataAnalysis.getVaccinationRateTAB3(chosenCountries,data_date,TableAreaconsoletable);
 		for(Map.Entry<String,CountryVacnumVacrate> entry:mymap.entrySet()) {
+			if(entry.getValue().getToType()==true)
 			tableview.getItems().add(entry.getValue());
 		}
 		title.setText("Rate of Vaccination against COVID-19 as of "+data_date);	
