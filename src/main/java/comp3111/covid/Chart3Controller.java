@@ -1,5 +1,6 @@
 package comp3111.covid;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -12,9 +13,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.XYChart.Data;
 
 public class Chart3Controller {
@@ -28,10 +34,6 @@ public class Chart3Controller {
 	@FXML
 	private LineChart<String, Number> linechart;
 
-	@FXML
-	void Returntoui(ActionEvent event) {
-
-	}
 
 	public ArrayList<String> getallDates(String dBegin, String dEnd) throws Exception {
 		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
@@ -50,15 +52,15 @@ public class Chart3Controller {
 
 	void setupchart(String begin, String end, String[] selectedcountry) {
 		try {
-			linechart.setTitle("Cumulative Rate of Vaccination against COVID-19 Deaths");
+			linechart.setTitle("Cumulative Rate of Vaccination against COVID-19");
 			linechart.setCursor(Cursor.CROSSHAIR);
-			ArrayList<String> datelist = DataAnalysis1.getallDates(begin, end);
+			ArrayList<String> datelist = Chart3Analysis.getallDates(begin, end);
 			CategoryAxis xAxis = (CategoryAxis) linechart.getXAxis();
 			ObservableList<String> categories = FXCollections.observableArrayList(datelist);
 			xAxis.setCategories(categories);
 			xAxis.setAutoRanging(true);
 			// setted up the table
-			Series<String, Number>[] dataSeries = DataAnalysis1.getVaccinationRateCha3(selectedcountry, begin, end);
+			Series<String, Number>[] dataSeries = Chart3Analysis.getVaccinationRateCha3(selectedcountry, begin, end,Textconsolechart);
 			for (int i = 0; i < dataSeries.length; i++) {
 				linechart.getData().add(dataSeries[i]);
 			}
@@ -67,4 +69,13 @@ public class Chart3Controller {
 		}
 
 	}
+    
+	@FXML
+    void Returntoui(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("/ui.fxml"));
+		Scene uiscene = new Scene(root);
+		Stage uiwindow = (Stage) ((Node)event.getSource()).getScene().getWindow(); 
+		uiwindow.setScene(uiscene);
+		uiwindow.show();
+    }
 }
