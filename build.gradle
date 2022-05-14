@@ -17,6 +17,13 @@ task debug(type:JavaExec) {
    classpath = sourceSets.main.runtimeClasspath
 } 
 
+task trial(type:JavaExec) {
+	group 'application'
+	description 'trialMyClass'
+   main = 'comp3111.covid.DataAnalysis1'
+   classpath = sourceSets.main.runtimeClasspath
+} 
+
 dependencies {
 	// https://mvnrepository.com/artifact/net.sourceforge.htmlunit/htmlunit
 	compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.31'
