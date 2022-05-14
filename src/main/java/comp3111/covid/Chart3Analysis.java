@@ -114,34 +114,44 @@ public class Chart3Analysis {
 		String previousCountry = "country";
 		String currentCountry = "";
 		String countriesOutofEndDate = "";
+		String countriesOutofBeginDate = "";
+		String previousDate="";
 		for (CSVRecord rec : getFileParser("COVID_Dataset_v1.0.csv")) {
 			Date recDate = stringToDate(rec.get("date"));
 			if (dateStartDate.compareTo(recDate) <= 0 && dateEndDate.compareTo(recDate) >= 0) {// we begin retrieve data
 																								// from this point
-
 				// retrieveData=true;
 				if (myset.contains(rec.get("location"))) {
 
 					currentCountry = rec.get("location");
-					System.out.println("we are here0 " + rec.get("date") + "current: " + currentCountry + " previous: "
-							+ previousCountry);
+					//System.out.println("we are here0 " + rec.get("date") + "current: " + currentCountry + " previous: "
+							//+ previousCountry);
 					if (currentCountry.equals(previousCountry) == false) {
-						
+						//test beginning boundary
+						//System.out.println("we are here1 " + rec.get("date") + rec.get("location"));
+						if(dateStartDate.compareTo(stringToDate(rec.get("date")))<0) {
+							//System.out.println("we are here1.2 " + rec.get("date") + rec.get("location"));
+							countriesOutofBeginDate +=rec.get("location")+"\n";
+						}
+	//					if(!endDate.equals(previousDate)) {
+	//						countriesOutofEndDate+=rec.get("location"+"\n");
+	//					}
 						chart3Series[countryCount].setName(rec.get("location"));
 						countryCount++;
-						System.out.println("we are here1 " + rec.get("date") + rec.get("location"));
+						
 						// it also means this country's enddate is out of range
 						// countriesOutofEndDate += previousCountry + "\n";
 						previousCountry = currentCountry;
 					}
 					double vaccinationRate = 0;
-					System.out.println("we are here2 " + rec.get("date") + rec.get("location"));
+					//System.out.println("we are here2 " + rec.get("date") + rec.get("location"));
 					if (rec.get("people_fully_vaccinated_per_hundred").isEmpty() == false)
 						vaccinationRate = Double.parseDouble(rec.get("people_fully_vaccinated_per_hundred"));
 					Data<String, Number> nodedata = new Data<String, Number>(rec.get("date"), vaccinationRate);
-					System.out.println(nodedata);
-					System.out.println("we are here3 " + rec.get("date") + rec.get("location")+" count"+countryCount);
+					//System.out.println(nodedata);
+					//System.out.println("we are here3 " + rec.get("date") + rec.get("location")+" count"+countryCount);
 					chart3Series[countryCount-1].getData().add(nodedata);
+					previousDate=rec.get("date");
 					//System.out.println("we are here " + chart3Series[countryCount].getData() + "\n");
 					/*
 					 * if(rec.get("date").equals(endDate)) {retrieveData=false;
@@ -150,7 +160,8 @@ public class Chart3Analysis {
 				}
 			}
 		}
-
+		//Textconsolechart.setText("The following countries are out of end date range: "+countriesOutofEndDate);
+		Textconsolechart.setText("The following countries are out of start date range: "+countriesOutofBeginDate);
 		return chart3Series;
 	}
 
