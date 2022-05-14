@@ -105,7 +105,7 @@ public class Chart3Analysis {
 		// HashMap<String,Series<String ,Number> >map = new HashMap<>();
 
 		for (int i = 0; i < countries.length; i++) {
-			System.out.println("country length "+countries.length);
+			//System.out.println("country length " + countries.length);
 			myset.add(countries[i]);
 			chart3Series[i] = new Series<String, Number>();
 		}
@@ -113,9 +113,10 @@ public class Chart3Analysis {
 		int countryCount = 0;
 		String previousCountry = "country";
 		String currentCountry = "";
-		String countriesOutofEndDate = "";
-		String countriesOutofBeginDate = "";
-		String previousDate="";
+		String countriesOutofEndDate = "\n";
+		String countriesOutofBeginDate = "\n";
+		String previousDate = null;
+		String lastlocation = "";
 		for (CSVRecord rec : getFileParser("COVID_Dataset_v1.0.csv")) {
 			Date recDate = stringToDate(rec.get("date"));
 			if (dateStartDate.compareTo(recDate) <= 0 && dateEndDate.compareTo(recDate) >= 0) {// we begin retrieve data
@@ -124,44 +125,60 @@ public class Chart3Analysis {
 				if (myset.contains(rec.get("location"))) {
 
 					currentCountry = rec.get("location");
-					//System.out.println("we are here0 " + rec.get("date") + "current: " + currentCountry + " previous: "
-							//+ previousCountry);
+					// System.out.println("we are here0 " + rec.get("date") + "current: " +
+					// currentCountry + " previous: "
+					// + previousCountry);
+
 					if (currentCountry.equals(previousCountry) == false) {
-						//test beginning boundary
-						//System.out.println("we are here1 " + rec.get("date") + rec.get("location"));
-						if(dateStartDate.compareTo(stringToDate(rec.get("date")))<0) {
+						// test beginning boundary
+						// System.out.println("we are here1 " + rec.get("date") + rec.get("location"));
+						if (dateStartDate.compareTo(stringToDate(rec.get("date"))) < 0) {
 							//System.out.println("we are here1.2 " + rec.get("date") + rec.get("location"));
-							countriesOutofBeginDate +=rec.get("location")+"\n";
+							countriesOutofBeginDate += rec.get("location") + "\n";
 						}
-	//					if(!endDate.equals(previousDate)) {
-	//						countriesOutofEndDate+=rec.get("location"+"\n");
-	//					}
+						if (previousDate != null) {
+							if (!endDate.equals(previousDate)) {
+								countriesOutofEndDate += previousCountry+"\n";
+							}
+						}
+						// System.out.println("we are here1.3 " + rec.get("date") +
+						// rec.get("location"));
 						chart3Series[countryCount].setName(rec.get("location"));
 						countryCount++;
-						
+						// System.out.println("we are here1.4 " + rec.get("date") +
+						// rec.get("location"));
 						// it also means this country's enddate is out of range
 						// countriesOutofEndDate += previousCountry + "\n";
 						previousCountry = currentCountry;
 					}
+
 					double vaccinationRate = 0;
-					//System.out.println("we are here2 " + rec.get("date") + rec.get("location"));
+					// System.out.println("we are here2 " + rec.get("date") + rec.get("location"));
 					if (rec.get("people_fully_vaccinated_per_hundred").isEmpty() == false)
 						vaccinationRate = Double.parseDouble(rec.get("people_fully_vaccinated_per_hundred"));
 					Data<String, Number> nodedata = new Data<String, Number>(rec.get("date"), vaccinationRate);
-					//System.out.println(nodedata);
-					//System.out.println("we are here3 " + rec.get("date") + rec.get("location")+" count"+countryCount);
-					chart3Series[countryCount-1].getData().add(nodedata);
-					previousDate=rec.get("date");
-					//System.out.println("we are here " + chart3Series[countryCount].getData() + "\n");
+					// System.out.println(nodedata);
+					// System.out.println("we are here3 " + rec.get("date") + rec.get("location")+"
+					// count"+countryCount);
+					chart3Series[countryCount - 1].getData().add(nodedata);
+					previousDate = rec.get("date");
+					// System.out.println("we are here " + chart3Series[countryCount].getData() +
+					// "\n");
 					/*
 					 * if(rec.get("date").equals(endDate)) {retrieveData=false;
 					 * chart3Series[countryCount].setName(rec.get("location")); countryCount++; }
 					 */
+					lastlocation = rec.get("location");
 				}
 			}
 		}
-		//Textconsolechart.setText("The following countries are out of end date range: "+countriesOutofEndDate);
-		Textconsolechart.setText("The following countries are out of start date range: "+countriesOutofBeginDate);
+		// Textconsolechart.setText("The following countries are out of end date range:
+		// "+countriesOutofEndDate);
+		if (!endDate.equals(previousDate)) {
+			countriesOutofEndDate += lastlocation + "\n";
+		}
+		Textconsolechart.setText("The following countries are out of start date range: " + countriesOutofBeginDate
+				+ "\n" + "The following countries are out of end date range: " + countriesOutofEndDate);
 		return chart3Series;
 	}
 
